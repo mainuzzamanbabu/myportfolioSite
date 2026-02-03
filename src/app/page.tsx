@@ -151,7 +151,7 @@ function Navigation() {
 // Hero Section
 function HeroSection() {
   return (
-    <section className="relative flex items-center pt-28 pb-0 lg:pt-36 lg:pb-0 overflow-hidden">
+    <section className="relative flex items-center pt-24 pb-0 lg:pt-32 lg:pb-0 overflow-hidden">
       {/* Floating orbs */}
       <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-purple-500/20 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-80 h-48 sm:h-80 bg-blue-500/20 rounded-full blur-3xl" />
@@ -281,7 +281,7 @@ function AboutSection() {
           viewport={{ once: true, margin: "-100px" }}
           variants={stagger}
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <motion.h2 variants={fadeInUp} className="section-title">
               About <span className="gradient-text">Me</span>
             </motion.h2>
@@ -430,7 +430,7 @@ function ProjectsSection() {
           viewport={{ once: true, margin: "-100px" }}
           variants={stagger}
         >
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <motion.h2 variants={fadeInUp} className="section-title">
               Featured <span className="gradient-text">Projects</span>
             </motion.h2>

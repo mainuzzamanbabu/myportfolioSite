@@ -376,19 +376,19 @@ body::after {
    SECTIONS
    ============================================= */
 section {
-  padding: 24px 0;
+  padding: 16px 0;
   position: relative;
 }
 
 .section-padding {
-  padding: 24px 0;
+  padding: 16px 0;
 }
 
 @media (min-width: 768px) {
 
   section,
   .section-padding {
-    padding: 32px 0;
+    padding: 24px 0;
   }
 }
 
@@ -396,7 +396,7 @@ section {
 
   section,
   .section-padding {
-    padding: 40px 0;
+    padding: 32px 0;
   }
 }
 
