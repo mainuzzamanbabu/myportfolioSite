@@ -650,9 +650,10 @@ function ContactSection() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '799586aa-e526-4401-a9c7-7d87052f062e', // Replace with your Web3Forms access key
+          access_key: '799586aa-e526-4401-a9c7-7d87052f062e',
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -661,14 +662,17 @@ function ContactSection() {
       });
 
       const result = await response.json();
+      console.log('Form submission result:', result);
       
       if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        console.error('Form submission failed:', result);
         setSubmitStatus('error');
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
