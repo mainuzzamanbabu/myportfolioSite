@@ -657,7 +657,9 @@ function ContactSection() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: `Portfolio Contact: ${formData.name}`,
+          subject: `Portfolio Contact from ${formData.name}`,
+          from_name: 'Portfolio Website',
+          botcheck: '', // Honeypot field - leave empty
         }),
       });
 
