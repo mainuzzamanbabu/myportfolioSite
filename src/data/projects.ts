@@ -148,7 +148,7 @@ export const projects: Project[] = [
       "Responsive design"
     ],
     techStack: ["Next.js", "Redux Toolkit", "Tailwind CSS", "PWA"],
-    liveUrl: "https://diu.ac"
+    liveUrl: "https://daffodilvarsity.edu.bd/"
   },
   {
     id: 10,
@@ -290,8 +290,8 @@ export const projects: Project[] = [
       "Performance tracking",
       "Data-driven analytics"
     ],
-    techStack: ["Next.js", "AI Integration", "Analytics"],
-    liveUrl: "https://social-earn.ai"
+    techStack: ["Next.js", "AI Integration", "Analytics"]
+    // liveUrl: "https://social-earn.ai"
   },
 
   // Service Websites

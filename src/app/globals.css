@@ -84,7 +84,13 @@ html {
 body {
   background: var(--bg-dark);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
   min-height: 100vh;
@@ -92,17 +98,33 @@ body {
 
 /* Animated gradient background */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(102, 126, 234, 0.25), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(118, 75, 162, 0.2), transparent),
-    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(34, 211, 238, 0.15), transparent),
-    radial-gradient(ellipse 50% 50% at 80% 80%, rgba(244, 114, 182, 0.1), transparent);
+    radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(102, 126, 234, 0.25),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 100% 0%,
+      rgba(118, 75, 162, 0.2),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 40% 30% at 0% 100%,
+      rgba(34, 211, 238, 0.15),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 50% 50% at 80% 80%,
+      rgba(244, 114, 182, 0.1),
+      transparent
+    );
   pointer-events: none;
   z-index: -1;
   animation: bgPulse 10s ease-in-out infinite alternate;
@@ -120,7 +142,7 @@ body::before {
 
 /* Grid pattern overlay */
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -138,7 +160,14 @@ body::after {
    GRADIENT TEXT ANIMATION
    ============================================= */
 .gradient-text {
-  background: linear-gradient(135deg, #667eea, #764ba2, #f472b6, #22d3ee, #667eea);
+  background: linear-gradient(
+    135deg,
+    #667eea,
+    #764ba2,
+    #f472b6,
+    #22d3ee,
+    #667eea
+  );
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -164,9 +193,11 @@ body::after {
    GLASSMORPHIC CARD SYSTEM
    ============================================= */
 .glass-card {
-  background: linear-gradient(135deg,
-      rgba(30, 30, 60, 0.6) 0%,
-      rgba(20, 20, 45, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 30, 60, 0.6) 0%,
+    rgba(20, 20, 45, 0.8) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -181,16 +212,18 @@ body::after {
 
 /* Shiny border effect */
 .glass-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
   transition: left 0.6s ease;
 }
 
@@ -226,7 +259,7 @@ body::after {
 }
 
 .profile-image-container::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -3px;
   border-radius: 50%;
@@ -238,8 +271,8 @@ body::after {
   z-index: -1;
 }
 
-.profile-image-container>div,
-.profile-image-container>img {
+.profile-image-container > div,
+.profile-image-container > img {
   border-radius: 50%;
   overflow: hidden;
 }
@@ -272,7 +305,11 @@ body::after {
    ============================================= */
 .btn-primary {
   position: relative;
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
   color: white;
   padding: 14px 32px;
   border-radius: 12px;
@@ -291,13 +328,18 @@ body::after {
 }
 
 .btn-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -314,7 +356,11 @@ body::after {
 
 .btn-primary-sm {
   position: relative;
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
   color: white;
   padding: 8px 18px;
   border-radius: 8px;
@@ -375,28 +421,22 @@ body::after {
 /* =============================================
    SECTIONS
    ============================================= */
-section {
-  padding: 16px 0;
-  position: relative;
-}
+/* Note: Don't apply padding to all sections - this overrides Tailwind classes.
+   Use .section-padding class where needed, or apply padding directly in components */
 
 .section-padding {
-  padding: 16px 0;
+  padding: 24px 0;
 }
 
 @media (min-width: 768px) {
-
-  section,
   .section-padding {
-    padding: 24px 0;
+    padding: 32px 0;
   }
 }
 
 @media (min-width: 1024px) {
-
-  section,
   .section-padding {
-    padding: 32px 0;
+    padding: 40px 0;
   }
 }
 
@@ -418,7 +458,11 @@ section {
    TECH BADGES
    ============================================= */
 .tech-badge {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.15),
+    rgba(118, 75, 162, 0.15)
+  );
   border: 1px solid rgba(102, 126, 234, 0.3);
   color: #a5b4fc;
   padding: 8px 16px;
@@ -430,7 +474,11 @@ section {
 }
 
 .tech-badge:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25));
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.25),
+    rgba(118, 75, 162, 0.25)
+  );
   transform: translateY(-2px);
 }
 
@@ -447,14 +495,19 @@ section {
 
 .skill-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple), var(--accent-pink));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-purple),
+    var(--accent-pink)
+  );
   border-radius: 10px;
   position: relative;
   box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
 }
 
 .skill-bar-fill::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -468,9 +521,11 @@ section {
    PROJECT CARDS
    ============================================= */
 .project-card {
-  background: linear-gradient(145deg,
-      rgba(35, 30, 65, 0.7) 0%,
-      rgba(20, 18, 45, 0.85) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(35, 30, 65, 0.7) 0%,
+    rgba(20, 18, 45, 0.85) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 90, 213, 0.15);
@@ -481,13 +536,18 @@ section {
 }
 
 .project-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple), var(--accent-pink));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-purple),
+    var(--accent-pink)
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -525,13 +585,17 @@ section {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
   transition: width 0.3s ease;
   border-radius: 2px;
 }
@@ -548,9 +612,11 @@ section {
    STAT CARDS
    ============================================= */
 .stat-card {
-  background: linear-gradient(135deg,
-      rgba(40, 30, 70, 0.7) 0%,
-      rgba(20, 20, 50, 0.9) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(40, 30, 70, 0.7) 0%,
+    rgba(20, 20, 50, 0.9) 100%
+  );
   backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 90, 213, 0.25);
   border-radius: 20px;
@@ -562,18 +628,20 @@ section {
 }
 
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg,
-      transparent,
-      rgba(102, 126, 234, 0.1),
-      transparent,
-      rgba(118, 75, 162, 0.1),
-      transparent);
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(102, 126, 234, 0.1),
+    transparent,
+    rgba(118, 75, 162, 0.1),
+    transparent
+  );
   animation: rotate 10s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -657,7 +725,11 @@ textarea:focus {
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
   border-color: transparent;
   color: white;
   box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
@@ -667,9 +739,11 @@ textarea:focus {
    EXPERIENCE TIMELINE
    ============================================= */
 .experience-card {
-  background: linear-gradient(135deg,
-      rgba(30, 30, 60, 0.7) 0%,
-      rgba(20, 20, 45, 0.85) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 30, 60, 0.7) 0%,
+    rgba(20, 20, 45, 0.85) 100%
+  );
   backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 90, 213, 0.2);
   border-radius: 20px;
@@ -679,14 +753,18 @@ textarea:focus {
 }
 
 .experience-card::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -20px;
   top: 50%;
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
 }
@@ -700,9 +778,11 @@ textarea:focus {
    SERVICE CARDS
    ============================================= */
 .service-card {
-  background: linear-gradient(145deg,
-      rgba(35, 30, 65, 0.7) 0%,
-      rgba(20, 18, 45, 0.85) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(35, 30, 65, 0.7) 0%,
+    rgba(20, 18, 45, 0.85) 100%
+  );
   backdrop-filter: blur(20px);
   border: 1px solid rgba(128, 90, 213, 0.15);
   border-radius: 24px;
@@ -713,13 +793,18 @@ textarea:focus {
 }
 
 .service-card::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple), var(--accent-pink));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-purple),
+    var(--accent-pink)
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -755,7 +840,11 @@ textarea:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--primary-blue), var(--primary-purple));
+  background: linear-gradient(
+    180deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
   border-radius: 10px;
 }
 
@@ -769,7 +858,7 @@ textarea:focus {
   }
 
   section {
-    padding: 80px 0;
+    padding: 28px 0;
   }
 
   .section-title {
