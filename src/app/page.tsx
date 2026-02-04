@@ -636,6 +636,45 @@ function SkillsSection() {
 
 // Contact Section
 function ContactSection() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '799586aa-e526-4401-a9c7-7d87052f062e', // Replace with your Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact: ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="section-padding px-4 sm:px-6">
       <div className="container mx-auto max-w-4xl">
@@ -649,9 +688,6 @@ function ContactSection() {
             <motion.h2 variants={fadeInUp} className="section-title">
               Get In <span className="gradient-text">Touch</span>
             </motion.h2>
-            {/* <motion.p variants={fadeInUp} className="section-subtitle mx-auto">
-              Let&apos;s discuss your project
-            </motion.p> */}
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -695,21 +731,56 @@ function ContactSection() {
 
             {/* Contact Form */}
             <motion.div variants={fadeInUp}>
-              <form className="glass-card p-6 sm:p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8 space-y-5">
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-lg text-emerald-400 text-sm">
+                    ✓ Message sent successfully! I&apos;ll get back to you soon.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+                    ✕ Failed to send message. Please try again or email me directly.
+                  </div>
+                )}
                 <div>
                   <label className="text-sm text-white/50 block mb-2">Name</label>
-                  <input type="text" placeholder="Your name" required />
+                  <input 
+                    type="text" 
+                    placeholder="Your name" 
+                    required 
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    disabled={isSubmitting}
+                  />
                 </div>
                 <div>
                   <label className="text-sm text-white/50 block mb-2">Email</label>
-                  <input type="email" placeholder="your@email.com" required />
+                  <input 
+                    type="email" 
+                    placeholder="your@email.com" 
+                    required 
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    disabled={isSubmitting}
+                  />
                 </div>
                 <div>
                   <label className="text-sm text-white/50 block mb-2">Message</label>
-                  <textarea rows={4} placeholder="Tell me about your project..." required></textarea>
+                  <textarea 
+                    rows={4} 
+                    placeholder="Tell me about your project..." 
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    disabled={isSubmitting}
+                  ></textarea>
                 </div>
-                <button type="submit" className="btn-primary w-full justify-center">
-                  Send Message →
+                <button 
+                  type="submit" 
+                  className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message →'}
                 </button>
               </form>
             </motion.div>
